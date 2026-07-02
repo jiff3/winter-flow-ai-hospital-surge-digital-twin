@@ -55,7 +55,7 @@ The goal is not to predict real clinical outcomes. The goal is to show how simul
 
 ## Key Features
 
-- Synthetic Irish-style hospital network generator
+- Synthetic hospital network generator
 - Winter virus scenario generator for influenza, RSV, COVID, combined surge, and severe combined surge
 - Patient-level synthetic arrival generator with age, acuity, virus type, admission, ICU, length-of-stay, and discharge-delay fields
 - SimPy discrete-event patient-flow simulation
