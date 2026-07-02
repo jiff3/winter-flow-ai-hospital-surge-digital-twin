@@ -8,7 +8,7 @@ import pandas as pd
 
 @dataclass(frozen=True)
 class Hospital:
-    """Synthetic hospital profile used by the command-center demo."""
+    """Synthetic hospital profile used by the command-center app."""
 
     hospital_id: str
     name: str
@@ -192,4 +192,3 @@ def _with_transfer_partners(hospitals: list[Hospital], rng: np.random.Generator)
         )
 
     return updated
-

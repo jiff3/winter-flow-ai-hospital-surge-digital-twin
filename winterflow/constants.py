@@ -1,7 +1,7 @@
 APP_TITLE = "WINTER-Flow Command Center"
 APP_SUBTITLE = "AI Hospital Surge Digital Twin"
 SYNTHETIC_DATA_DISCLAIMER = (
-    "All default data is synthetic. This prototype is for operational planning demonstration only "
+    "All default data is synthetic. This project is for operational scenario exploration only "
     "and is not a clinical tool."
 )
 

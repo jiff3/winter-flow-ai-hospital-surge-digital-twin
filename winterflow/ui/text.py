@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 METHODOLOGY_TEXT = """
-WINTER-Flow is a synthetic command-center demonstration. The hospital network, virus waves,
+WINTER-Flow is a synthetic command-center project. The hospital network, virus waves,
 patient arrivals, resource constraints, and outcomes are generated from deterministic seeded
 models so scenarios can be reproduced exactly.
 
@@ -28,11 +28,10 @@ capacity.
 """
 
 REPORT_PLACEHOLDER_TEXT = """
-The report module will package the selected scenario, synthetic demand summary, simulation KPIs,
-policy comparison, and disclaimers into a downloadable executive brief in a later phase.
+The report module packages the selected scenario, synthetic demand summary, simulation KPIs,
+policy comparison, and disclaimers into a downloadable executive brief.
 """
 
 
 def format_scenario_name(scenario: str) -> str:
     return scenario.replace("_", " ").title().replace("Rsv", "RSV").replace("Covid", "COVID")
-

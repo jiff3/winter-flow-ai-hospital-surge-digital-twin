@@ -1,8 +1,8 @@
 # WINTER-Flow: AI Hospital Surge Digital Twin
 
-WINTER-Flow is a portfolio-grade Python and Streamlit command-center application that models how winter respiratory virus waves can affect a synthetic hospital network. It combines deterministic synthetic data generation, discrete-event simulation, machine-learning forecasting, policy scenario comparison, optimization, and downloadable executive reporting.
+WINTER-Flow is a Python and Streamlit command-center application that models how winter respiratory virus waves can affect a synthetic hospital network. It combines deterministic synthetic data generation, discrete-event simulation, machine-learning forecasting, policy scenario comparison, optimization, and downloadable executive reporting.
 
-This project uses synthetic data by default and is intended as a portfolio/research demonstration. It is not a clinical decision-support tool and should not be used for real hospital operations.
+This project uses synthetic data by default. It is not a clinical decision-support tool and should not be used for real hospital operations.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-command%20center-red)
@@ -49,7 +49,7 @@ This project uses synthetic data by default and is intended as a portfolio/resea
 
 ## Problem Statement
 
-Winter respiratory waves can create simultaneous pressure across emergency departments, inpatient beds, ICU capacity, staffing, delayed discharges, and inter-hospital transfers. WINTER-Flow demonstrates how a health-system command center might explore those pressures using reproducible synthetic data and transparent operational assumptions.
+Winter respiratory waves can create simultaneous pressure across emergency departments, inpatient beds, ICU capacity, staffing, delayed discharges, and inter-hospital transfers. WINTER-Flow models how a health-system command center might explore those pressures using reproducible synthetic data and transparent operational assumptions.
 
 The goal is not to predict real clinical outcomes. The goal is to show how simulation, forecasting, and optimization can be composed into a practical planning workflow.
 
@@ -115,6 +115,19 @@ Run tests:
 pytest
 ```
 
+## Example Workflow
+
+Use this workflow to exercise the main app features:
+
+1. Choose `Severe Combined Surge` in the scenario selector.
+2. Open the Command Center tab and run the baseline simulation.
+3. Review risk labels, peak trolley count, ward occupancy, ICU occupancy, and ED wait KPIs.
+4. Open the Policy Sandbox tab.
+5. Apply discharge acceleration and open surge beds.
+6. Run the before/after comparison and review the change in risk and trolley metrics.
+7. Open the Optimizer tab and review the recommended intervention plan.
+8. Open the Report tab and download the executive Markdown report.
+
 ## Methodology
 
 WINTER-Flow uses deterministic seeded generation throughout:
@@ -147,7 +160,7 @@ outputs/          Report and screenshot output folders
 - All default data is synthetic.
 - Risk scores and forecasts are simplified planning indicators.
 - The optimizer uses approximate screening logic, not a validated operational model.
-- The simulation is designed for demonstration and portfolio review, not production deployment.
+- The simulation is designed for synthetic scenario exploration, not production deployment.
 - Real-world use would require governance, local calibration, clinical safety review, data protection review, and stakeholder validation.
 
 ## Future Extensions
@@ -157,7 +170,7 @@ outputs/          Report and screenshot output folders
 - Add multi-objective optimization with explicit staffing rosters.
 - Add PDF report export.
 - Add scenario save/load.
-- Add CI workflow and hosted demo deployment.
+- Add CI workflow and hosted deployment.
 
 ## Not A Clinical Tool
 

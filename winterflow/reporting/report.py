@@ -6,7 +6,7 @@ from typing import Any
 import pandas as pd
 
 SYNTHETIC_REPORT_DISCLAIMER = (
-    "All default data is synthetic. WINTER-Flow is a decision-support demonstration only, "
+    "All default data is synthetic. WINTER-Flow is a scenario-planning project, "
     "not a clinical tool, and must not be used for patient-care decisions."
 )
 
