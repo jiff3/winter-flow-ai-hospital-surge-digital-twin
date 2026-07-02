@@ -115,21 +115,6 @@ Run tests:
 pytest
 ```
 
-## Demo Script
-
-Use this 2-minute walkthrough for interviews or portfolio demos:
-
-1. Choose `Severe Combined Surge` in the scenario selector.
-2. Open the Command Center tab and run the baseline simulation.
-3. Point out red risk labels, peak trolley count, ward occupancy, ICU occupancy, and ED wait KPIs.
-4. Open the Policy Sandbox tab.
-5. Apply discharge acceleration and open surge beds.
-6. Run the before/after comparison and show the improvement in risk and trolley metrics.
-7. Open the Optimizer tab and review the recommended intervention plan.
-8. Open the Report tab and download the executive Markdown report.
-
-A standalone version is available in [`docs/demo_script.md`](docs/demo_script.md).
-
 ## Methodology
 
 WINTER-Flow uses deterministic seeded generation throughout:
@@ -173,13 +158,6 @@ outputs/          Report and screenshot output folders
 - Add PDF report export.
 - Add scenario save/load.
 - Add CI workflow and hosted demo deployment.
-
-## CV Bullet Points
-
-- Built an end-to-end Python and Streamlit digital twin for synthetic hospital winter surge planning.
-- Implemented deterministic synthetic data generation, SimPy discrete-event simulation, ML demand forecasting with uncertainty intervals, and resource optimization.
-- Designed a command-center UI with operational KPIs, risk heatmaps, policy sandboxing, optimizer recommendations, and downloadable executive reports.
-- Added modular pytest coverage across data generation, forecasting, simulation, optimization, policy comparison, and reporting.
 
 ## Not A Clinical Tool
 
