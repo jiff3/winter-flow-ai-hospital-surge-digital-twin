@@ -9,7 +9,7 @@ description = "WINTER-Flow: AI Hospital Surge Digital Twin"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "streamlit>=1.36",
+    "streamlit>=1.58",
     "pandas>=2.1",
     "numpy>=1.26",
     "scikit-learn>=1.4",
@@ -28,4 +28,3 @@ include = ["winterflow*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
-

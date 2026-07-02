@@ -403,19 +403,19 @@ def render_command_center_tab(
             ],
             columns=4,
         )
-        st.plotly_chart(plot_simulation_occupancy(daily_metrics_df), use_container_width=True, key="current_occupancy_chart")
-        st.plotly_chart(plot_trolley_counts(daily_metrics_df), use_container_width=True, key="current_trolley_chart")
-        st.plotly_chart(plot_risk_heatmap(daily_metrics_df), use_container_width=True, key="current_risk_heatmap")
-        st.dataframe(daily_metrics_df.tail(60), use_container_width=True, hide_index=True)
+        st.plotly_chart(plot_simulation_occupancy(daily_metrics_df), width="stretch", key="current_occupancy_chart")
+        st.plotly_chart(plot_trolley_counts(daily_metrics_df), width="stretch", key="current_trolley_chart")
+        st.plotly_chart(plot_risk_heatmap(daily_metrics_df), width="stretch", key="current_risk_heatmap")
+        st.dataframe(daily_metrics_df.tail(60), width="stretch", hide_index=True)
     else:
         info_box("Simulation not run", "The demand and scenario charts below are ready; run the simulation when you want operational metrics.", "warning")
 
     chart_left, chart_right = st.columns(2)
     with chart_left:
-        st.plotly_chart(plot_scenario_curves(scenario_df), use_container_width=True, key="command_scenario_curves")
+        st.plotly_chart(plot_scenario_curves(scenario_df), width="stretch", key="command_scenario_curves")
     with chart_right:
-        st.plotly_chart(plot_staff_absence(scenario_df), use_container_width=True, key="command_staff_absence")
-    st.plotly_chart(plot_daily_demand(daily_demand_df), use_container_width=True, key="command_daily_demand")
+        st.plotly_chart(plot_staff_absence(scenario_df), width="stretch", key="command_staff_absence")
+    st.plotly_chart(plot_daily_demand(daily_demand_df), width="stretch", key="command_daily_demand")
 
 
 def render_hospital_network_tab(hospitals_df: pd.DataFrame) -> None:
@@ -423,8 +423,8 @@ def render_hospital_network_tab(hospitals_df: pd.DataFrame) -> None:
         "Synthetic hospital network",
         "Locations, capacities, and transfer partners are fictional but shaped to resemble a small Irish-style regional network.",
     )
-    st.plotly_chart(plot_hospital_network(hospitals_df), use_container_width=True, key="hospital_network_chart")
-    st.dataframe(hospitals_df, use_container_width=True, hide_index=True)
+    st.plotly_chart(plot_hospital_network(hospitals_df), width="stretch", key="hospital_network_chart")
+    st.dataframe(hospitals_df, width="stretch", hide_index=True)
 
 
 def render_policy_sandbox_tab(
@@ -443,7 +443,7 @@ def render_policy_sandbox_tab(
     render_policy_preset_buttons("sandbox")
 
     st.subheader("Active Policy Package")
-    st.dataframe(policy_controls_table(policy_controls), use_container_width=True, hide_index=True)
+    st.dataframe(policy_controls_table(policy_controls), width="stretch", hide_index=True)
 
     before_1, before_2, before_3 = st.columns(3)
     before_1.metric("Baseline arrivals", f"{len(baseline_patient_arrivals_df):,}")
@@ -465,7 +465,7 @@ def render_policy_sandbox_tab(
 
     if "policy_comparison_outputs" not in st.session_state:
         info_box("Awaiting comparison", "Apply a policy to run the baseline and policy simulations side by side.", "warning")
-        st.plotly_chart(plot_scenario_curves(policy_scenario_df), use_container_width=True, key="policy_pending_scenario_curves")
+        st.plotly_chart(plot_scenario_curves(policy_scenario_df), width="stretch", key="policy_pending_scenario_curves")
         return
 
     outputs = st.session_state["policy_comparison_outputs"]
@@ -487,15 +487,15 @@ def render_policy_sandbox_tab(
     comparison_metric_cards(comparison_df)
     st.plotly_chart(
         plot_before_after_timeseries(baseline_outputs[2], policy_outputs[2], "max_trolley_count"),
-        use_container_width=True,
+        width="stretch",
         key="policy_trolley_before_after",
     )
     st.plotly_chart(
         plot_before_after_timeseries(baseline_outputs[2], policy_outputs[2], "risk_score"),
-        use_container_width=True,
+        width="stretch",
         key="policy_risk_before_after",
     )
-    st.plotly_chart(plot_comparison_bars(comparison_df), use_container_width=True, key="policy_comparison_bars")
+    st.plotly_chart(plot_comparison_bars(comparison_df), width="stretch", key="policy_comparison_bars")
     styled_impact_table(comparison_df)
 
 
@@ -539,15 +539,15 @@ def render_forecasting_tab(hospitals_df: pd.DataFrame) -> None:
         ],
         columns=3,
     )
-    st.plotly_chart(plot_forecast_interval(forecast_target_df, TARGET_LABELS[target]), use_container_width=True, key="forecast_interval_chart")
+    st.plotly_chart(plot_forecast_interval(forecast_target_df, TARGET_LABELS[target]), width="stretch", key="forecast_interval_chart")
     left, right = st.columns(2)
     with left:
         st.subheader("Model evaluation")
-        st.dataframe(metrics_df, use_container_width=True, hide_index=True)
+        st.dataframe(metrics_df, width="stretch", hide_index=True)
     with right:
         st.subheader("Feature importance")
-        st.plotly_chart(plot_feature_importance(importance_df), use_container_width=True, key="forecast_feature_importance")
-    st.dataframe(forecast_target_df, use_container_width=True, hide_index=True)
+        st.plotly_chart(plot_feature_importance(importance_df), width="stretch", key="forecast_feature_importance")
+    st.dataframe(forecast_target_df, width="stretch", hide_index=True)
 
 
 def render_optimizer_tab(daily_demand_df: pd.DataFrame, hospitals_df: pd.DataFrame) -> None:
@@ -583,9 +583,9 @@ def render_optimizer_tab(daily_demand_df: pd.DataFrame, hospitals_df: pd.DataFra
         columns=4,
     )
     info_box("Recommended plan rationale", str(result["rationale_text"]), "success")
-    st.plotly_chart(plot_optimizer_scores(recommendations_df), use_container_width=True, key="optimizer_scores_chart")
+    st.plotly_chart(plot_optimizer_scores(recommendations_df), width="stretch", key="optimizer_scores_chart")
     st.subheader("Recommended intervention plan")
-    st.dataframe(recommendations_df, use_container_width=True, hide_index=True)
+    st.dataframe(recommendations_df, width="stretch", hide_index=True)
 
 
 def render_report_tab(
@@ -809,7 +809,7 @@ def policy_controls_from_state() -> PolicyControls:
 
 
 def policy_controls_table(controls: PolicyControls) -> pd.DataFrame:
-    return pd.DataFrame(
+    table = pd.DataFrame(
         [
             {"lever": "Virus intensity multiplier", "value": controls.virus_intensity_multiplier},
             {"lever": "RSV peak shift days", "value": controls.rsv_peak_shift_days},
@@ -825,6 +825,8 @@ def policy_controls_table(controls: PolicyControls) -> pd.DataFrame:
             {"lever": "Transfer capacity", "value": controls.transfer_capacity},
         ]
     )
+    table["value"] = table["value"].astype(str)
+    return table
 
 
 def get_current_risk_label() -> str | None:

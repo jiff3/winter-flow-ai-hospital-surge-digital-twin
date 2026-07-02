@@ -97,4 +97,4 @@ def styled_impact_table(comparison_df: pd.DataFrame) -> None:
     display_df = comparison_df.copy()
     display_df["percent_change"] = display_df["percent_change"].map(lambda value: f"{value:+.1f}%")
     display_df["absolute_change"] = display_df["absolute_change"].map(lambda value: f"{value:+.2f}")
-    st.dataframe(display_df, use_container_width=True, hide_index=True)
+    st.dataframe(display_df, width="stretch", hide_index=True)
