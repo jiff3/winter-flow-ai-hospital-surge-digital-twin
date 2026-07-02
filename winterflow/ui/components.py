@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from html import escape
 
 import pandas as pd
 import streamlit as st
@@ -17,21 +18,19 @@ def command_center_header(
     risk: str | None = None,
 ) -> None:
     risk_markup = risk_badge(risk) if risk else ""
-    st.markdown(
-        f"""
-        <div class="wf-header">
-            <h1>{title}</h1>
-            <p>{subtitle}</p>
-            <div class="wf-header-meta">
-                <span class="wf-pill">Scenario: {scenario_label}</span>
-                <span class="wf-pill">Horizon: {horizon_days} days</span>
-                <span class="wf-pill">Synthetic arrivals: {synthetic_arrivals:,}</span>
-                {risk_markup}
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    header_html = (
+        '<div class="wf-header">'
+        f"<h1>{escape(title)}</h1>"
+        f"<p>{escape(subtitle)}</p>"
+        '<div class="wf-header-meta">'
+        f'<span class="wf-pill">Scenario: {escape(scenario_label)}</span>'
+        f'<span class="wf-pill">Horizon: {horizon_days} days</span>'
+        f'<span class="wf-pill">Synthetic arrivals: {synthetic_arrivals:,}</span>'
+        f"{risk_markup}"
+        "</div>"
+        "</div>"
     )
+    st.html(header_html)
 
 
 def kpi_cards(items: Iterable[dict[str, object]], columns: int = 4) -> None:
@@ -99,4 +98,3 @@ def styled_impact_table(comparison_df: pd.DataFrame) -> None:
     display_df["percent_change"] = display_df["percent_change"].map(lambda value: f"{value:+.1f}%")
     display_df["absolute_change"] = display_df["absolute_change"].map(lambda value: f"{value:+.2f}")
     st.dataframe(display_df, use_container_width=True, hide_index=True)
-

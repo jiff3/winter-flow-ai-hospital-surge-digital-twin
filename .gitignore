@@ -21,5 +21,6 @@ outputs/reports/*.md
 outputs/screenshots/*
 !outputs/reports/.gitkeep
 !outputs/screenshots/.gitkeep
+!outputs/screenshots/*.png
 data/optional_public/*
 !data/optional_public/.gitkeep

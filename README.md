@@ -21,15 +21,31 @@ This project uses synthetic data by default and is intended as a portfolio/resea
 - Plotly
 - pytest
 
-## Screenshot Placeholders
+## Screenshots
 
-Add screenshots to `outputs/screenshots/` before publishing:
+### Command Center
 
-- `outputs/screenshots/command-center.png`
-- `outputs/screenshots/policy-sandbox.png`
-- `outputs/screenshots/forecasting.png`
-- `outputs/screenshots/optimizer.png`
-- `outputs/screenshots/report.png`
+![WINTER-Flow command center dashboard](outputs/screenshots/command-center.png)
+
+### Hospital Network
+
+![Synthetic hospital network view](outputs/screenshots/hospital-network.png)
+
+### Policy Sandbox
+
+![Policy sandbox before and after comparison](outputs/screenshots/policy-sandbox.png)
+
+### Forecasting
+
+![Forecasting tab with prediction intervals and model diagnostics](outputs/screenshots/forecasting.png)
+
+### Optimizer
+
+![Optimizer tab with recommended intervention plan](outputs/screenshots/optimizer.png)
+
+### Executive Report
+
+![Report tab with downloadable executive report preview](outputs/screenshots/report.png)
 
 ## Problem Statement
 
